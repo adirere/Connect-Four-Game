@@ -1,0 +1,61 @@
+body {
+  font-family: sans-serif;
+}
+
+.grid {
+  border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  height: 60vh;
+  width: 70vh;
+  overflow-y: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid div {
+  height: 10vh;
+  width: 10vh;
+}
+
+.player-one {
+  background-color: red;
+  border-radius: 50%;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-timing-function: cubic-bezier(1, -0.03, 0.25, 0.27);
+}
+
+.player-two {
+  background-color: blue;
+  border-radius: 50%;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-timing-function: cubic-bezier(1, -0.03, 0.25, 0.27);
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(-100vh);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-10vh);
+  }
+  70% {
+    transform: translateY(-5vh);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-2.5vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
