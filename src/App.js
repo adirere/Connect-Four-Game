@@ -13,6 +13,7 @@ export default function App() {
     <>
       <GameInfos />
       <GameBoard />
+      <GameMechanics />
     </>
   );
 }

@@ -21,7 +21,7 @@ body {
 }
 
 .player-one {
-  background-color: red;
+  background-color: rgb(231, 76, 60);
   border-radius: 50%;
   animation-duration: 1s;
   animation-name: slidein;
@@ -29,7 +29,7 @@ body {
 }
 
 .player-two {
-  background-color: blue;
+  background-color: #f1c40f;
   border-radius: 50%;
   animation-duration: 1s;
   animation-name: slidein;

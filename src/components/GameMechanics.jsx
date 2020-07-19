@@ -1,4 +1,7 @@
+import React from "react";
 import { winningArrays } from "../utils/WinningArrays";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const GameMechanics = () => {
   const squares = document.querySelectorAll(".grid div");
@@ -29,7 +32,29 @@ export const GameMechanics = () => {
             displayCurrentPlayer.innerHTML = currentPlayer;
           }
           //if the sqaure below your current swqaure is not taken, you can't go there
-        } else alert("cant go here");
+        } else {
+          if (currentPlayer === 1) {
+            toast.error("cant go there", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined
+            });
+          } else {
+            toast.warn("cant go there", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined
+            });
+          }
+        }
       };
     })(i);
 
@@ -68,4 +93,6 @@ export const GameMechanics = () => {
 
   //add an event listener to each square that will trigger the checkBoard function on click
   squares.forEach(square => square.addEventListener("click", checkBoard));
+
+  return <ToastContainer />;
 };
