@@ -18,19 +18,24 @@ body {
 .grid div {
   height: 10vh;
   width: 10vh;
+  cursor: pointer;
 }
 
 .player-one {
-  background-color: rgb(231, 76, 60);
-  border-radius: 50%;
+  background-color: #e53030;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px #c91919 inset, 0 5px 5px rgba(65, 8, 8, 0.17),
+    0 15px rgba(255, 255, 255, 0.25) inset;
   animation-duration: 1s;
   animation-name: slidein;
   animation-timing-function: cubic-bezier(1, -0.03, 0.25, 0.27);
 }
 
 .player-two {
-  background-color: #f1c40f;
-  border-radius: 50%;
+  background-color: #ffc334;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px #ffb401 inset, 0 5px 5px rgba(103, 73, 0, 0.17),
+    0 15px rgba(255, 255, 255, 0.25) inset;
   animation-duration: 1s;
   animation-name: slidein;
   animation-timing-function: cubic-bezier(1, -0.03, 0.25, 0.27);
