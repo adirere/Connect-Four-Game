@@ -1,12 +1,14 @@
 import React from "react";
 
-const GameInfos = () => {
+const GameInfos = ({ gameScreen, toRestart, setScreen }) => {
   return (
     <>
       <h3>
         The current Player is: Player <span id="current-player">1</span>
       </h3>
-      <h3 id="result" />
+      <button onClick={() => toRestart(gameScreen)}>restart</button>
+      <button onClick={() => setScreen()}>back to menu</button>
+      <p id="result" />
     </>
   );
 };

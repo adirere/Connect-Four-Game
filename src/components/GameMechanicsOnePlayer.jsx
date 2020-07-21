@@ -3,8 +3,9 @@ import { winningArrays, gameboard } from "../utils/Utils";
 import { ToastContainer, toast } from "react-toastify";
 import { GameAi } from "./GameAi";
 import "react-toastify/dist/ReactToastify.css";
+import GameBoard from "./GameBoard";
 
-export const GameMechanicsOnePlayer = () => {
+export const GameMechanicsOnePlayer = restart => {
   const grid = document.querySelector(".grid");
   const squares = document.querySelectorAll(".grid div");
   const result = document.querySelector("#result");
@@ -12,6 +13,22 @@ export const GameMechanicsOnePlayer = () => {
   let winner = false;
   let currentPlayer = 1,
     computedPosition;
+
+  if (restart) {
+    for (let i = 0; i <= 41; i++) {
+      gameboard[i] = 0;
+    }
+    squares.forEach((square, index) => {
+      if (index < 42) {
+        square.classList.remove("taken");
+        square.classList.remove("player-one");
+        square.classList.remove("player-two");
+        square.classList.remove("winner");
+      }
+    });
+  }
+
+  console.log("gameboard full", gameboard);
 
   for (var i = 0, len = squares.length; i < len; i++)
     (function(index) {
@@ -40,11 +57,13 @@ export const GameMechanicsOnePlayer = () => {
                 gameboard[computedPosition] = currentPlayer;
                 checkBoard();
                 //change the player
-                if (!winner) {
-                  currentPlayer = 1;
-                  displayCurrentPlayer.innerHTML = currentPlayer;
-                  grid.style.pointerEvents = "all";
-                }
+                setTimeout(() => {
+                  if (!winner) {
+                    currentPlayer = 1;
+                    displayCurrentPlayer.innerHTML = currentPlayer;
+                    grid.style.pointerEvents = "all";
+                  }
+                }, 1000);
               },
 
               1000
@@ -86,6 +105,11 @@ export const GameMechanicsOnePlayer = () => {
         grid.style.pointerEvents = "none";
         winner = true;
         result.innerHTML = "Player one wins!";
+
+        square1.classList.add("winner");
+        square2.classList.add("winner");
+        square3.classList.add("winner");
+        square4.classList.add("winner");
         //remove ability to change result
       }
       //now check to see if they all have the classname player two
@@ -100,6 +124,10 @@ export const GameMechanicsOnePlayer = () => {
         winner = true;
         setTimeout(() => {
           result.innerHTML = "Player two wins!";
+          square1.classList.add("winner");
+          square2.classList.add("winner");
+          square3.classList.add("winner");
+          square4.classList.add("winner");
         }, 1000);
       }
     }

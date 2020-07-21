@@ -3,11 +3,22 @@ import { winningArrays } from "../utils/Utils";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const GameMechanicsTwoPlayers = () => {
+export const GameMechanicsTwoPlayers = restart => {
   const squares = document.querySelectorAll(".grid div");
   const result = document.querySelector("#result");
   const displayCurrentPlayer = document.querySelector("#current-player");
   let currentPlayer = 1;
+
+  if (restart) {
+    squares.forEach((square, index) => {
+      if (index < 42) {
+        square.classList.remove("taken");
+        square.classList.remove("player-one");
+        square.classList.remove("player-two");
+        square.classList.remove("winner");
+      }
+    });
+  }
 
   for (var i = 0, len = squares.length; i < len; i++)
     (function(index) {
@@ -76,6 +87,11 @@ export const GameMechanicsTwoPlayers = () => {
       ) {
         //if they do, player-one is passed as the winner
         result.innerHTML = "Player one wins!";
+
+        square1.classList.add("winner");
+        square2.classList.add("winner");
+        square3.classList.add("winner");
+        square4.classList.add("winner");
         //remove ability to change result
       }
       //now check to see if they all have the classname player two
@@ -87,6 +103,11 @@ export const GameMechanicsTwoPlayers = () => {
       ) {
         //if they do, player-two is passed as the winner as well as the chip positions
         result.innerHTML = "Player two wins!";
+
+        square1.classList.add("winner");
+        square2.classList.add("winner");
+        square3.classList.add("winner");
+        square4.classList.add("winner");
       }
     }
   }

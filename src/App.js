@@ -8,14 +8,17 @@ import "./styles.css";
 
 export default function App() {
   const [gameScreen, setGameScreen] = useState(0);
+  const [restart, setRestart] = useState(false);
 
   useEffect(() => {
     if (gameScreen === 1) GameMechanicsOnePlayer();
 
     if (gameScreen === 2) GameMechanicsTwoPlayers();
 
+    if (restart) setRestart(false);
+
     console.log("GameMechanics loaded");
-  }, [gameScreen]);
+  }, [gameScreen, restart]);
 
   return (
     <>
@@ -23,15 +26,23 @@ export default function App() {
         <InitialScreen setScreen={choice => setGameScreen(choice)} />
       ) : gameScreen === 1 ? (
         <>
-          <GameInfos gameScreen={gameScreen} />
+          <GameInfos
+            gameScreen={gameScreen}
+            toRestart={choice => setRestart(true)}
+            setScreen={() => setGameScreen(0)}
+          />
           <GameBoard />
-          <GameMechanicsOnePlayer />
+          <GameMechanicsOnePlayer restart={restart} />
         </>
       ) : (
         <>
-          <GameInfos gameScreen={gameScreen} />
+          <GameInfos
+            gameScreen={gameScreen}
+            toRestart={choice => setRestart(true)}
+            setScreen={() => setGameScreen(0)}
+          />
           <GameBoard />
-          <GameMechanicsTwoPlayers />
+          <GameMechanicsTwoPlayers restart={restart} />
         </>
       )}
     </>
