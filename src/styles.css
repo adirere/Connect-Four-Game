@@ -41,6 +41,12 @@ body {
   animation-timing-function: cubic-bezier(1, -0.03, 0.25, 0.27);
 }
 
+.winner {
+  animation-duration: 1s;
+  animation-name: winnerGlow;
+  animation-iteration-count: infinite;
+}
+
 @keyframes slidein {
   0% {
     transform: translateY(-100vh);
@@ -62,5 +68,17 @@ body {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes winnerGlow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
   }
 }
