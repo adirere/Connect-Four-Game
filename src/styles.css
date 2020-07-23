@@ -1,5 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Codystar:300&display=swap");
+
 body {
   font-family: sans-serif;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-image: linear-gradient(
+    to right bottom,
+    #747474,
+    #7893ab,
+    #4cbbce,
+    #44e2c3,
+    #a9ff91
+  );
+  overflow: hidden;
+  animation: bluring 0.5s ease-out forwards;
+}
+
+.initialScreen {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 50%;
+  margin: 10% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dotted rgb(194, 208, 255);
+  /* box-shadow: 0px 7px 15px -1px rgba(0, 0, 0, 0.75); */
+}
+
+.gameTitle {
+  font-family: "Titan One";
+  font-weight: bold;
+  font-size: 5rem;
+  letter-spacing: 3px;
+  text-shadow: 4px 3px 0 #7a7a7a;
+  /* text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+    1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+    1px 5px 1px #919191, 1px 9px 3px rgba(16, 16, 16, 0.4),
+    1px 11px 5px rgba(16, 16, 16, 0.2), 1px 12px 15px rgba(16, 16, 16, 0.2),
+    1px 15px 30px rgba(16, 16, 16, 0.4); */
+}
+
+.selectGame {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.vsComputer,
+.vsPlayer {
+  width: 12rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007fff;
+  font-family: "Titan One";
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.vsComputer:hover,
+.vsPlayer:hover {
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+    1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+    1px 5px 1px #919191, 1px 9px 3px rgba(16, 16, 16, 0.4),
+    1px 11px 5px rgba(16, 16, 16, 0.2), 1px 12px 15px rgba(16, 16, 16, 0.2),
+    1px 15px 30px rgba(16, 16, 16, 0.4);
+}
+
+i {
+  color: white;
 }
 
 .grid {
@@ -47,6 +127,15 @@ body {
   animation-iteration-count: infinite;
 }
 
+@keyframes bluring {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
 @keyframes slidein {
   0% {
     transform: translateY(-100vh);
@@ -80,5 +169,41 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .initialScreen {
+    width: 75vw;
+    height: 50vh;
+    margin: 25% auto;
+  }
+
+  .gameTitle {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .selectGame {
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .vsComputer,
+  .vsPlayer {
+    width: 7.5rem;
+    padding: 1rem;
+    font-size: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007fff;
+    font-family: "Titan One";
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
   }
 }
