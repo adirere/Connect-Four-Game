@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Codystar:300&display=swap");
 
 body {
-  font-family: sans-serif;
+  font-family: "Titan One", sans-serif;
   width: 100vw;
   height: 100vh;
   color: white;
@@ -31,7 +31,6 @@ body {
 }
 
 .gameTitle {
-  font-family: "Titan One";
   font-weight: bold;
   font-size: 5rem;
   letter-spacing: 3px;
@@ -60,7 +59,6 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #007fff;
-  font-family: "Titan One";
   font-weight: bold;
   color: white;
   border-radius: 10px;
@@ -78,8 +76,99 @@ body {
     1px 15px 30px rgba(16, 16, 16, 0.4);
 }
 
+.vsComputer:focus,
+.vsPlayer:focus {
+  outline: none;
+}
+
 i {
   color: white;
+}
+
+.infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  letter-spacing: 3px;
+  color: white;
+}
+
+.currentPlayer {
+  padding: 0 5px 15px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-player {
+  width: 50px;
+  height: 50px;
+}
+
+.red {
+  background-color: #e53030;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px #c91919 inset, 0 5px 5px rgba(65, 8, 8, 0.17),
+    0 15px rgba(255, 255, 255, 0.25) inset;
+}
+
+.yellow {
+  background-color: #ffc334;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px #ffb401 inset, 0 5px 5px rgba(103, 73, 0, 0.17),
+    0 15px rgba(255, 255, 255, 0.25) inset;
+}
+
+.buttonsInfos {
+  width: 15%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.restart,
+.back {
+  width: 6rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007fff;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.restart:hover,
+.back:hover {
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 2px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 3px 1px #919191, 1px 4px 1px #919191, 1px 4px 1px #919191,
+    1px 2px 1px #919191, 1px 4px 3px rgba(16, 16, 16, 0.4),
+    1px 5px 2px rgba(16, 16, 16, 0.2), 1px 6px 7px rgba(16, 16, 16, 0.2),
+    1px 7px 15px rgba(16, 16, 16, 0.4);
+}
+
+.restart:focus,
+.back:focus {
+  outline: none;
+}
+
+#result {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .grid {
@@ -205,5 +294,48 @@ i {
     border-radius: 10px;
     cursor: pointer;
     border: none;
+  }
+
+  .infos {
+    width: 90vw;
+    justify-content: space-between;
+    margin: auto;
+    font-size: 10px;
+  }
+
+  .currentPlayer {
+    width: 100px;
+    text-align: center;
+    padding: 0 5px 5px 5px;
+  }
+
+  .buttonsInfos {
+    width: 200px;
+  }
+
+  .restart,
+  .back {
+    background-color: transparent;
+    width: 100px;
+    padding: 8px;
+  }
+
+  #result {
+    top: 15%;
+  }
+
+  .display-player {
+    width: 25px;
+    height: 25px;
+  }
+
+  .grid {
+    height: 60vw;
+    width: 70vw;
+  }
+
+  .grid div {
+    height: 10vw;
+    width: 10vw;
   }
 }
