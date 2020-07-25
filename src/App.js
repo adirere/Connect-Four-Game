@@ -4,6 +4,7 @@ import GameInfos from "./components/GameInfos";
 import InitialScreen from "./components/InitialScreen";
 import { GameMechanicsOnePlayer } from "./components/GameMechanicsOnePlayer";
 import { GameMechanicsTwoPlayers } from "./components/GameMechanicsTwoPlayers";
+import { ReactComponent as ConnectFourBoard } from "./images/connectFourBlue.svg";
 import "./styles.css";
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           />
           <GameBoard />
           <GameMechanicsOnePlayer restart={restart} />
+          <ConnectFourBoard />
         </>
       ) : (
         <>
@@ -43,6 +45,7 @@ export default function App() {
           />
           <GameBoard />
           <GameMechanicsTwoPlayers restart={restart} />
+          <ConnectFourBoard />
         </>
       )}
     </>

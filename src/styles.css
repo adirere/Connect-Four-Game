@@ -171,8 +171,17 @@ i {
   pointer-events: none;
 }
 
+#connectBoard {
+  height: 73vh;
+  width: 98vh;
+  position: absolute;
+  left: 50%;
+  top: 53.5%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 .grid {
-  border: 1px solid;
   display: flex;
   flex-wrap: wrap;
   height: 60vh;
@@ -327,6 +336,13 @@ i {
   .display-player {
     width: 25px;
     height: 25px;
+  }
+
+  #connectBoard {
+    height: 73vw;
+    width: 98vw;
+    left: 50%;
+    top: 52%;
   }
 
   .grid {
