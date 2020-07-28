@@ -182,6 +182,7 @@ i {
 }
 
 .grid {
+  border: 1px solid;
   display: flex;
   flex-wrap: wrap;
   height: 60vh;
@@ -197,6 +198,8 @@ i {
   height: 10vh;
   width: 10vh;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .player-one {
@@ -223,6 +226,38 @@ i {
   animation-duration: 1s;
   animation-name: winnerGlow;
   animation-iteration-count: infinite;
+}
+
+.winner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: white;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+  transform: skewX(-45deg);
+  background: linear-gradient(to right, white, white 20px, transparent 20px);
+  transform-origin: left bottom;
+  animation: shine 6s ease-in infinite;
+}
+
+.winner:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: white;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+  transform: skewX(-45deg);
+  background: linear-gradient(to right, white, white 20px, transparent 20px);
+  transform-origin: left bottom;
+  animation: shine 10s ease-in infinite;
 }
 
 @keyframes bluring {
@@ -263,10 +298,22 @@ i {
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.85;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: skewX(-45deg) translateX(-100%);
+  }
+  10% {
+    transform: skewX(-45deg) translateX(100%);
+  }
+  100% {
+    transform: skewX(-45deg) translateX(100%);
   }
 }
 
@@ -339,10 +386,13 @@ i {
   }
 
   #connectBoard {
-    height: 73vw;
+    /* height: 73vw;
     width: 98vw;
     left: 50%;
-    top: 52%;
+    top: 52%; */
+    height: 72.1vw;
+    left: 50%;
+    top: 51.9%;
   }
 
   .grid {
